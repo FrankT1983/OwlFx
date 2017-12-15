@@ -1,0 +1,586 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://lumii.lv/ontologies/pizza.owl#"
+     xml:base="http://lumii.lv/ontologies/pizza.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:pizza="http://lumii.lv/ontologies/pizza.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="http://lumii.lv/ontologies/pizza.owl"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#Comment -->
+
+    <owl:AnnotationProperty rdf:about="http://lumii.lv/ontologies/pizza.owl#Comment"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#CheeseTopping -->
+
+    <rdfs:Datatype rdf:about="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping -->
+
+    <rdfs:Datatype rdf:about="http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping"/>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#TomatoTopping -->
+
+    <rdfs:Datatype rdf:about="http://lumii.lv/ontologies/pizza.owl#TomatoTopping"/>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#VegetableTopping -->
+
+    <rdfs:Datatype rdf:about="http://lumii.lv/ontologies/pizza.owl#VegetableTopping"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#hasBase -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/pizza.owl#hasBase">
+        <rdfs:domain rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+        <rdfs:range rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaBase"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#hasTopping -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/pizza.owl#hasTopping">
+        <rdfs:domain rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+        <rdfs:range rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaTopping"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#isBaseOf -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/pizza.owl#isBaseOf">
+        <rdfs:range rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+        <rdfs:domain rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaBase"/>
+        <owl:inverseOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasBase"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#isToppingOf -->
+
+    <owl:ObjectProperty rdf:about="http://lumii.lv/ontologies/pizza.owl#isToppingOf">
+        <rdfs:range rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+        <rdfs:domain rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaTopping"/>
+        <owl:inverseOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#hasCalorificValue -->
+
+    <owl:DatatypeProperty rdf:about="http://lumii.lv/ontologies/pizza.owl#hasCalorificValue">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#hasTopping -->
+
+    <owl:DatatypeProperty rdf:about="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#AmericanPizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#AmericanPizza">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#NamedPizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/pizza.owl#PepperoniTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:onClass rdf:resource="http://lumii.lv/ontologies/pizza.owl#PepperoniTopping"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:onClass rdf:resource="http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:onClass rdf:resource="http://lumii.lv/ontologies/pizza.owl#TomatoTopping"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/pizza.owl#TomatoTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#CheeseTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#CheeseTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#CheeseyPizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#CheeseyPizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                        <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#DeepPanBase -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#DeepPanBase">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaBase"/>
+        <owl:disjointWith rdf:resource="http://lumii.lv/ontologies/pizza.owl#ThinAndCrispyBase"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#GreenPepperTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#GreenPepperTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#PepperTopping"/>
+        <owl:disjointWith rdf:resource="http://lumii.lv/ontologies/pizza.owl#RedPepperTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#HamTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#HamTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#MeatTopping"/>
+        <owl:disjointWith rdf:resource="http://lumii.lv/ontologies/pizza.owl#PepperoniTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#HighCaloriePizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#HighCaloriePizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasCalorificValue"/>
+                        <owl:someValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                                <owl:withRestrictions rdf:parseType="Collection">
+                                    <rdf:Description>
+                                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">400</xsd:minInclusive>
+                                    </rdf:Description>
+                                </owl:withRestrictions>
+                            </rdfs:Datatype>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#MargharitaPizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#MargharitaPizza">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#NamedPizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:allValuesFrom>
+                    <rdfs:Datatype>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping"/>
+                            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#TomatoTopping"/>
+                        </owl:unionOf>
+                    </rdfs:Datatype>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:onClass rdf:resource="http://lumii.lv/ontologies/pizza.owl#TomatoTopping"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:onClass rdf:resource="http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/pizza.owl#TomatoTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <Comment>A pizza that only has Mozzarella and Tomato toppings</Comment>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#MeatTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#MeatTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#MozzarellaTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+        <owl:disjointWith rdf:resource="http://lumii.lv/ontologies/pizza.owl#ParmezanTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#MushroomTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#MushroomTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#VegetableTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#MyPizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#MyPizza">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#NamedPizza"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:someValuesFrom rdf:resource="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                <owl:onClass rdf:resource="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#NamedPizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#NamedPizza">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#NonVegetarianPizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#NonVegetarianPizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#VegetarianPizza"/>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#ParmezanTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#ParmezanTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#PepperTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#PepperTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#VegetableTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#PepperoniTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#PepperoniTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#MeatTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#Pizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#Pizza">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasCalorificValue"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasBase"/>
+                <owl:onClass rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaBase"/>
+                <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#PizzaBase -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#PizzaBase"/>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#PizzaTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#PizzaTopping"/>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#RedPepperTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#RedPepperTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#PepperTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#ThinAndCrispyBase -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#ThinAndCrispyBase">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaBase"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#TomatoTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#TomatoTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#VegetableTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#VegetableTopping -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#VegetableTopping">
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#PizzaTopping"/>
+    </owl:Class>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#VegetarianPizza -->
+
+    <owl:Class rdf:about="http://lumii.lv/ontologies/pizza.owl#VegetarianPizza">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://lumii.lv/ontologies/pizza.owl#hasTopping"/>
+                        <owl:allValuesFrom>
+                            <rdfs:Datatype>
+                                <owl:unionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+                                    <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#VegetableTopping"/>
+                                </owl:unionOf>
+                            </rdfs:Datatype>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#TestPizza2 -->
+
+    <owl:NamedIndividual rdf:about="http://lumii.lv/ontologies/pizza.owl#TestPizza2">
+        <rdf:type rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+        <hasCalorificValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">250</hasCalorificValue>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://lumii.lv/ontologies/pizza.owl#TetsPizza1 -->
+
+    <owl:NamedIndividual rdf:about="http://lumii.lv/ontologies/pizza.owl#TetsPizza1">
+        <rdf:type rdf:resource="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+        <hasCalorificValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</hasCalorificValue>
+    </owl:NamedIndividual>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#Pizza"/>
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#PizzaBase"/>
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#PizzaTopping"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#CheeseTopping"/>
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#MeatTopping"/>
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#VegetableTopping"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#MushroomTopping"/>
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#PepperTopping"/>
+            <rdf:Description rdf:about="http://lumii.lv/ontologies/pizza.owl#TomatoTopping"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.10-SNAPSHOT) http://owlapi.sourceforge.net -->
+

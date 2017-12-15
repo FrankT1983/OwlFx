@@ -1,0 +1,10 @@
+<?import javafx.scene.layout.GridPane?>
+<?import OwlFx.OwlViewer?>
+
+
+<?import javafx.scene.layout.AnchorPane?>
+<AnchorPane fx:controller="sample.Controller"
+            xmlns:fx="http://javafx.com/fxml" >
+
+    <OwlViewer fx:id="viewer" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" ></OwlViewer>
+</AnchorPane>
